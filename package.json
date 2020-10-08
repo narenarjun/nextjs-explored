@@ -17,5 +17,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "dotenv-load": "^2.0.0",
+    "next-env": "^1.1.1"
   }
 }
