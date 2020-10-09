@@ -5,15 +5,33 @@ import { useRouter } from "next/router";
 
 // /user/:id:thing  --> this kind of routing is possible in nextjs with catch all routes feature.
 
-const Page = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const Page = ({note}) => {
 
   return (
     <div sx={{ variant: "containers.page" }}>
-      <h1>Note: {id} </h1>
+      <h1>Note: {note.title} </h1>
     </div>
   );
 };
 
 export default Page;
+
+export async function getServerSideProps({params, req, res}) {
+  const response = await fetch(`http://localhost:3000/api/note/${params.id}`)
+
+  // so much power!
+  if (!response.ok) {
+    res.writeHead(302, { Location: '/notes' })
+    res.end()
+    return {props: {}}
+  }
+
+  const {data} = await response.json()
+  
+  if (data) {
+    return {
+      props: {note: data}
+    }
+  }
+}
+

@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import Link from "next/link";
 
 // ! this is how navigation to static path workks
-const Page = () => (
+const Page = ({ content }) => (
   <div sx={{ height: `calc(100vh - 60px)` }}>
     <div
       sx={{
@@ -13,9 +13,7 @@ const Page = () => (
         height: "100%",
       }}
     >
-      <h1 sx={{ fontSize: 8, my: 0 }}>
-        This is a really dope note taking app.
-      </h1>
+      <h1 sx={{ fontSize: 8, my: 0 }}>{content.title}</h1>
     </div>
   </div>
 );
@@ -26,3 +24,15 @@ const Page = () => (
  */
 
 export default Page;
+
+export function getStaticProps() {
+  // console.log(context);
+  // ! mocking getting data from CMS
+  return {
+    props: {
+      content: {
+        title: "This is a really nice app",
+      },
+    },
+  };
+}

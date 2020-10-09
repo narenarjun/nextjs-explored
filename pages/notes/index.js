@@ -2,10 +2,10 @@
 import { jsx } from "theme-ui";
 import Link from "next/link";
 
-const Page = () => {
-  const notes = new Array(15)
-    .fill(1)
-    .map((e, i) => ({ id: i, title: `Note: ${i}` }));
+const Page = ({ notes }) => {
+  // const notes = new Array(15)
+  //   .fill(1)
+  //   .map((e, i) => ({ id: i, title: `Note: ${i}` }));
 
   return (
     <div sx={{ variant: "containers.page" }}>
@@ -36,3 +36,14 @@ const Page = () => {
 };
 
 export default Page;
+
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:3000/api/note/`);
+  const { data } = await res.json();
+
+  console.log(data);
+
+  return {
+    props: { notes: data },
+  };
+}
