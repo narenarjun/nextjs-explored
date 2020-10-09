@@ -1,9 +1,16 @@
 const nextEnv = require("next-env");
 const dotenvload = require("dotenv-load");
 
+// const { PATHPREFIX } = process.env; // * here environment variable for path prefix is taken out for ease of use
+
+// console.log(PATHPREFIX);
+
 dotenvload();
 const withEnv = nextEnv();
-module.exports = withEnv();
+module.exports = {
+  plugin: withEnv(),
+//   basePath: `/${PATHPREFIX}`,  //! this is how pathprefix is added in nextjs
+};
 
 // const {
 //   PHASE_PRODUCTION_BUILD,
