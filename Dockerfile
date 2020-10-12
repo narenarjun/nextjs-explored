@@ -1,6 +1,6 @@
-FROM node:alipne
+FROM node:alpine  
 
-LABEL app="nextjs"
+LABEL app="nextjs" 
 LABEL maintainer="narendran"
 
 
