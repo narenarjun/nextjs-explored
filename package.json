@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $(PORT) "
+    "start": "next start",
+    "startindocker": "next start -p $PORT "
   },
   "dependencies": {
     "@theme-ui/presets": "^0.3.0",

@@ -41,7 +41,7 @@ export async function getServerSideProps() {
   const res = await fetch(`${process.env.API_URL}/api/note/`);
   const { data } = await res.json();
 
-  console.log(data);
+  // console.log(data);
 
   return {
     props: { notes: data },
