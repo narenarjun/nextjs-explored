@@ -7,9 +7,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "next -p $(PORT)",
+    "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p $(PORT) "
   },
   "dependencies": {
     "@theme-ui/presets": "^0.3.0",
